@@ -266,6 +266,47 @@
       </xs:complexType>
    </xs:element>
 
+   <!-- Definition of grapheme element -->
+   <xs:complexType name="graphemeType">
+      <xs:simpleContent>
+         <xs:restriction base="textType">
+            <xs:maxLength value="128" />
+         </xs:restriction>
+      </xs:simpleContent>
+   </xs:complexType>     
+
+   <!-- Definition of alias element -->
+   <xs:complexType name="aliasType">
+      <xs:simpleContent>
+         <xs:restriction base="textType">
+            <xs:maxLength value="128" />
+         </xs:restriction>
+      </xs:simpleContent>
+   </xs:complexType>     
+
+   <!-- Definition of phoneme element -->
+   <xs:complexType name="phonemeType">
+      <xs:simpleContent>
+         <xs:extension base="xs:string">
+            <xs:attribute name="alphabet" type="xs:string" use="optional" />  
+            <xs:attribute ref="xml:lang" use="optional" />
+         </xs:extension>
+      </xs:simpleContent> 
+   </xs:complexType>         
+
+   <!-- Definition of lexeme element -->
+   <xs:complexType name="lexemeType">
+      <xs:sequence>
+         <xs:element name="grapheme" type="graphemeType" minOccurs="1" maxOccurs="1" />
+         <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:choice>
+               <xs:element name="alias" type="aliasType" />
+               <xs:element name="phoneme" type="phonemeType" />
+            </xs:choice>
+         </xs:sequence>            
+      </xs:sequence>      
+   </xs:complexType>
+
 
    <!-- ##################################################################### -->
    <!-- Service Information (clause 6) -->
@@ -324,6 +365,7 @@
       <xs:sequence>
          <xs:group ref="serviceNameGroup" maxOccurs="unbounded" />
          <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="genre" type="genreType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
