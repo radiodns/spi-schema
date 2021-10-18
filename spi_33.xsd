@@ -264,18 +264,18 @@
          <xs:attribute ref="xml:lang" default="en" />
          <xs:anyAttribute namespace="##other" processContents="lax" />
       </xs:complexType>
-   </xs:element>
+   </xs:element> 
 
-   <!-- Definition of grapheme element -->
-   <xs:complexType name="graphemeType">
+   <!-- Definition of aliasType element -->
+   <xs:complexType name="preferableAliasType">
       <xs:simpleContent>
-         <xs:restriction base="textType">
-            <xs:maxLength value="128" />
-         </xs:restriction>
+         <xs:extension base="aliasType">
+            <xs:attribute name="prefer" type="xs:boolean" use="optional" default="false"/>
+         </xs:extension>
       </xs:simpleContent>
-   </xs:complexType>     
+   </xs:complexType>    
 
-   <!-- Definition of alias element -->
+   <!-- Definition of aliasType element -->
    <xs:complexType name="aliasType">
       <xs:simpleContent>
          <xs:restriction base="textType">
@@ -284,29 +284,16 @@
       </xs:simpleContent>
    </xs:complexType>     
 
-   <!-- Definition of phoneme element -->
+   <!-- Definition of phonemeType element -->
    <xs:complexType name="phonemeType">
       <xs:simpleContent>
          <xs:extension base="xs:string">
             <xs:attribute name="alphabet" type="xs:string" use="optional" />  
             <xs:attribute ref="xml:lang" use="optional" />
+            <xs:attribute name="prefer" type="xs:boolean" use="optional" default="false" />
          </xs:extension>
       </xs:simpleContent> 
    </xs:complexType>         
-
-   <!-- Definition of lexeme element -->
-   <xs:complexType name="lexemeType">
-      <xs:sequence>
-         <xs:element name="grapheme" type="graphemeType" minOccurs="1" maxOccurs="1" />
-         <xs:sequence minOccurs="1" maxOccurs="unbounded">
-            <xs:choice>
-               <xs:element name="alias" type="aliasType" />
-               <xs:element name="phoneme" type="phonemeType" />
-            </xs:choice>
-         </xs:sequence>            
-      </xs:sequence>      
-   </xs:complexType>
-
 
    <!-- ##################################################################### -->
    <!-- Service Information (clause 6) -->
@@ -365,7 +352,8 @@
       <xs:sequence>
          <xs:group ref="serviceNameGroup" maxOccurs="unbounded" />
          <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
-         <xs:element name="lexeme" type="lexemeType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="alias" type="preferableAliasType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="genre" type="genreType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
@@ -465,10 +453,13 @@
          <xs:element name="location" type="locationType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="onDemand" type="onDemandType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="alias" type="preferableAliasType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="genre" type="genreType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="credits" type="creditsListType" minOccurs="0" maxOccurs="unbounded"/>         
          <xs:element name="programmeEvent" type="programmeEventType" minOccurs="0" maxOccurs="unbounded" />
          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
       </xs:sequence>
@@ -570,6 +561,36 @@
       <xs:attribute name="start" type="timePointType" use="required" />
       <xs:attribute name="end" type="timePointType" use="required" />
     </xs:complexType>
+
+  <!-- Definition of creditsListType -->
+  <xs:complexType name="creditsListType">
+    <xs:sequence>
+      <xs:element name="credit" type="creditsItemType" 
+               minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Definition of creditsItemType -->
+  <xs:complexType name="creditsItemType">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="organization" type="xs:string" />
+        <xs:element name="person" type="xs:string" />
+      </xs:choice>
+      <xs:element name="presentationRole" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="role" type="creditsRoleType" use="required"/>
+    <xs:attribute name="index" type="xs:integer" use="optional"/>
+  </xs:complexType>
+  
+  <!-- Definition of creditsRoleType -->
+  <xs:simpleType name="creditsRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="creator"/>
+      <xs:enumeration value="contributor"/>
+      <xs:enumeration value="guest"/>
+    </xs:restriction>
+  </xs:simpleType>
  
 
    <!-- ##################################################################### -->
