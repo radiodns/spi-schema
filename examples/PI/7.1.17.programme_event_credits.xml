@@ -1,0 +1,15 @@
+<programmeEvent shortId="6527748">
+  <mediumName>RICHMOND LEE STA</mediumName>
+  <longName>RICHMOND LEE STATUE COMES DOWN</longName>
+  <location>
+    <relativeTime time="P0Y0M0DT0H45M35.000S" duration="P0Y0M0DT0H3M45.000S"/>
+  </location>
+  <credits>
+    <credit role="contributor">
+      <person>Whittney Evans</person>
+    </credit>
+    <credit role="guest">
+      <person>Bill Smith</person>
+    </credit>
+  </credits>
+</programmeEvent>

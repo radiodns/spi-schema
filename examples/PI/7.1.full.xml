@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<epg xmlns="http://www.worlddab.org/schemas/spi/33" 
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xsi:schemaLocation="http://www.worlddab.org/schemas/spi/33 http://www.worlddab.org/schemas/spi/33/spi_33.xsd">
+<epg xmlns="http://www.worlddab.org/schemas/spi/33"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.worlddab.org/schemas/spi/33 http://www.worlddab.org/schemas/spi/33/spi_33.xsd">
     <schedule creationTime="2014-04-11T01:20:00+01:00" originator="Global Radio">
         <scope startTime="2014-04-25T06:00:00+01:00" stopTime="2014-04-25T13:00:00+01:00">
-           <serviceScope id="dab:ce1.c185.c479.0" />
-           <serviceScope id="fm:ce1.c479.09580" />
-           <serviceScope id="http://media-ice.musicradio.com/Capital" />
-           <serviceScope id="http://media-ice.musicradio.com/CapitalMP3Low" />
+            <serviceScope id="dab:ce1.c185.c479.0" />
+            <serviceScope id="fm:ce1.c479.09580" />
+            <serviceScope id="http://media-ice.musicradio.com/Capital" />
+            <serviceScope id="http://media-ice.musicradio.com/CapitalMP3Low" />
         </scope>
         <programme id="crid://www.capitalfm.com/4772/1190223" shortId="1190223">
             <shortName>B'fast</shortName>
             <mediumName>Breakfast</mediumName>
             <longName>Capital Breakfast</longName>
             <location>
-                <time time="2014-04-25T06:00:00+01:00" duration="PT4H" 
-                      actualTime="2014-04-25T06:00:00+01:00" actualDuration="PT4H"/>
+                <time time="2014-04-25T06:00:00+01:00" duration="PT4H" actualTime="2014-04-25T06:00:00+01:00" actualDuration="PT4H"/>
             </location>
             <mediaDescription>
                 <shortDescription>Forget the coffee, Capital gives you the perfect morning pick-me-up with a blend of the latest hits, travel news and incomparable morning banter.</shortDescription>
             </mediaDescription>
-            <phoneme alphabet="x-sampa">brEkf@st</phoneme>            
+            <phoneme alphabet="x-sampa">brEkf@st</phoneme>
             <genre href="urn:tva:metadata:cs:ContentCS:2002:3.6.8">
                 <![CDATA[ Electronic/Club/Urban/Dance]]>
             </genre>
@@ -31,6 +29,11 @@
             <memberOf id="crid://www.capitalfm.com/4772" shortId="4772"/>
             <link uri="mailto:capital.breakfast@capitalfm.com" description="Email the Capital Breakfast team!" />
             <link uri="http://www.capitalfm.com/on-air/breakfast-show/" />
+            <credits>
+                <credit role="contributor">
+                    <person>Johnny Vaughan</person>
+                </credit>
+            </credits>
             <programmeEvent id="crid://thisisglobal.com/4772/1190223/788946" shortId="788946">
                 <shortName>Pun</shortName>
                 <mediumName>No.1 Pun</mediumName>
