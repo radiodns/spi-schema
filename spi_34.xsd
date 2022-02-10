@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.worlddab.org/schemas/spi/33" 
-   xmlns="http://www.worlddab.org/schemas/spi/33"
+<xs:schema targetNamespace="http://www.worlddab.org/schemas/spi/34" 
+   xmlns="http://www.worlddab.org/schemas/spi/34"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    elementFormDefault="qualified">
 
