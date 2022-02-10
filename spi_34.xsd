@@ -499,6 +499,7 @@
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="credits" type="creditsListType" minOccurs="0" maxOccurs="unbounded"/>         
          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="shortId" type="shortCRIDType" use="required" />
