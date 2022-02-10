@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceInformation xmlns="http://www.worlddab.org/schemas/spi/33"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.worlddab.org/schemas/spi/33 http://www.worlddab.org/schemas/spi/33/spi_33.xsd" creationTime="2014-04-25T00:05:31+01:00" originator="Global Radio" xml:lang="en">
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.worlddab.org/schemas/spi/33 ../../spi_33.xsd" creationTime="2014-04-25T00:05:31+01:00" originator="Global Radio" xml:lang="en">
     <services>
         <serviceProvider>
             <shortName>Global</shortName>
@@ -26,6 +26,10 @@
             <shortName>Capital</shortName>
             <mediumName>Capital FM</mediumName>
             <longName>Capital London</longName>
+            <alias>Capital F M</alias>
+            <phoneme alphabet="x-sampa">"k{pıtl</phoneme>
+            <phoneme alphabet="x-sampa" prefer="true">"k{pıtl ef em</phoneme>
+            <phoneme alphabet="ipa">ˈkæpɪtl ˈlʌndən</phoneme>            
             <mediaDescription>
                 <shortDescription>
                The UK's No.1 Hit Music Station
@@ -49,10 +53,7 @@
             <mediaDescription>
                 <multimedia url="http://owdo.thisisglobal.com/2.0/id/25/logo/1024x768.jpg" type="logo_unrestricted" mimeValue="image/jpeg" height="768" width="1024" />
             </mediaDescription>
-            <alias>Capital F M</alias>
-            <phoneme alphabet="x-sampa">"k{pıtl</phoneme>
-            <phoneme alphabet="x-sampa" prefer="true">"k{pıtl ef em</phoneme>
-            <phoneme alphabet="ipa">ˈkæpɪtl ˈlʌndən</phoneme>
+
             <genre href="urn:tva:metadata:cs:ContentCS:2004:3.6.10">
             Hit-Chart/Song Requests
             </genre>

@@ -267,16 +267,16 @@
    </xs:element> 
 
    <!-- Definition of aliasType element -->
-   <xs:complexType name="preferableAliasType">
+   <xs:complexType name="aliasType">
       <xs:simpleContent>
-         <xs:extension base="aliasType">
+         <xs:extension base="baseAliasType">
             <xs:attribute name="prefer" type="xs:boolean" use="optional" default="false"/>
          </xs:extension>
       </xs:simpleContent>
    </xs:complexType>    
 
-   <!-- Definition of aliasType element -->
-   <xs:complexType name="aliasType">
+   <!-- Definition of baseAliasType element -->
+   <xs:complexType name="baseAliasType">
       <xs:simpleContent>
          <xs:restriction base="textType">
             <xs:maxLength value="128" />
@@ -351,9 +351,9 @@
    <xs:complexType name="serviceType">
       <xs:sequence>
          <xs:group ref="serviceNameGroup" maxOccurs="unbounded" />
-         <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
-         <xs:element name="alias" type="preferableAliasType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="alias" type="aliasType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="genre" type="genreType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
@@ -450,11 +450,11 @@
    <xs:complexType name="programmeType">
       <xs:sequence>
          <xs:group ref="scheduleNameGroup" maxOccurs="unbounded" />
+         <xs:element name="alias" type="aliasType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />         
          <xs:element name="location" type="locationType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="onDemand" type="onDemandType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
-         <xs:element name="alias" type="preferableAliasType" minOccurs="0" maxOccurs="unbounded" />
-         <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="genre" type="genreType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded" />
@@ -565,8 +565,7 @@
   <!-- Definition of creditsListType -->
   <xs:complexType name="creditsListType">
     <xs:sequence>
-      <xs:element name="credit" type="creditsItemType" 
-               minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="credit" type="creditsItemType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   
@@ -577,10 +576,9 @@
         <xs:element name="organization" type="xs:string" />
         <xs:element name="person" type="xs:string" />
       </xs:choice>
-      <xs:element name="presentationRole" type="xs:string" />
     </xs:sequence>
     <xs:attribute name="role" type="creditsRoleType" use="required"/>
-    <xs:attribute name="index" type="xs:integer" use="optional"/>
+    <xs:attribute name="index" type="xs:positiveInteger" use="optional"/>
   </xs:complexType>
   
   <!-- Definition of creditsRoleType -->
